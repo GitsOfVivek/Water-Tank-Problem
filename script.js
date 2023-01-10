@@ -24,7 +24,7 @@ const resultArr = function (arr) {
 	const left = [];
 	const right = [];
 	let leftMax = arr[0];
-	let rightMax = arr[0];
+	let rightMax = arr[arr.length - 1];
 	for (let i = 0; i < arr.length; i++) {
 		if (leftMax < arr[i]) {
 			leftMax = arr[i];
