@@ -2,7 +2,20 @@ const arrayEl = document.querySelector('.arr');
 const quesSVG = document.getElementById('ques-svg');
 const ansSVG = document.getElementById('ans-svg');
 
-const arr = [0, 4, 0, 0, 0, 6, 0, 6, 4, 0];
+const inputArray = [0, 4, 0, 0, 0, 6, 2, 6, 4, 0];
+document.getElementById('btn').addEventListener('click', function () {
+	const arr = document
+		.getElementById('input-arr')
+		.value.split(',')
+		.map(el => Number(el));
+	const n = inputArray.length;
+	inputArray.splice(0, n);
+	arr.map(el => inputArray.push(el));
+	const output = resultArr(inputArray);
+	createQuesSVG(inputArray, output);
+	createAnsSVG(inputArray, output);
+	document.getElementById('input-arr').value = '';
+});
 
 // Algo
 const resultArr = function (arr) {
@@ -34,7 +47,7 @@ const resultArr = function (arr) {
 
 // Create Ques SVG
 const createQuesSVG = function (arr, output) {
-	console.log(arr);
+	document.getElementById('ques-svg').innerHTML = '';
 	const maximumElInArr = arr.reduce((max, cur) => (max < cur ? cur : max));
 	document.getElementById(
 		'ques-arr'
@@ -114,6 +127,7 @@ const createQuesSVG = function (arr, output) {
 
 // Create Ans SVG
 const createAnsSVG = function (arr, output) {
+	document.getElementById('ans-svg').innerHTML = '';
 	const maximumElInArr = arr.reduce((max, cur) => (max < cur ? cur : max));
 	document.getElementById(
 		'ans-unit'
@@ -172,7 +186,7 @@ const createAnsSVG = function (arr, output) {
 	}
 };
 window.onload = function () {
-	const output = resultArr(arr);
-	createQuesSVG(arr, output);
-	createAnsSVG(arr, output);
+	const output = resultArr(inputArray);
+	createQuesSVG(inputArray, output);
+	createAnsSVG(inputArray, output);
 };

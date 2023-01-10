@@ -9,6 +9,25 @@
 .heading {
 	text-align: center;
 }
+.input-box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#input-arr,
+#btn {
+	font-size: 1.3rem;
+	padding: 5px 5px;
+	outline: none;
+	border: 1px solid black;
+	border-radius: 2px;
+}
+#input-arr {
+	width: 40vw;
+}
+#btn {
+	cursor: pointer;
+}
 #ques-arr,
 #ans-unit {
 	text-align: center;
